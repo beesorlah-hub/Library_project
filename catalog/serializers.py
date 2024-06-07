@@ -21,6 +21,11 @@ class BookSerializer(serializers.ModelSerializer):
         fields = ['title','isbn', 'publication_date', 'page_count','author','publisher']
 
     def create(self, validated_data):
+        book_data = validated_data.pop("book")
+        borrower_data = validated_data.pop("borrower")
+
+
+
         author_data = validated_data.pop("author")
         publisher_data = validated_data.pop("publisher")
 
